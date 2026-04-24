@@ -1,0 +1,30 @@
+services:
+  database:
+    image: postgres:18
+    container_name: postgres
+    restart: unless-stopped
+    # Use SSH in Production
+    ports:
+      - 15432:5432
+    # ---------------------
+    env_file:
+      - .env
+    networks:
+      - postgres-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+      start_period: 30s
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+networks: 
+  postgres-network:
+    driver: bridge
+
+
+volumes:
+  postgres_data:

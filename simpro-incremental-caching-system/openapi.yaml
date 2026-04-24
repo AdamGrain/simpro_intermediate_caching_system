@@ -1,0 +1,521 @@
+openapi: 3.0.3
+info:
+  title: simPRO_API_Collection
+  version: 1.0.0
+  contact: {}
+servers:
+- url: /
+paths:
+  /api/v1.0/companies/{companyID}/customers/:
+    get:
+      operationId: getCustomers
+      parameters:
+      - $ref: '#/components/parameters/search'
+      - $ref: '#/components/parameters/columns'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/orderby'
+      - $ref: '#/components/parameters/limit'
+      summary: List all customers.
+      description: List all customers.
+      responses:
+        '200':
+          description: List all customers.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Customer'
+    parameters:
+    - $ref: '#/components/parameters/companyID'
+  /api/v1.0/companies/{companyID}/employees/:
+    get:
+      operationId: getEmployees
+      parameters:
+      - $ref: '#/components/parameters/search'
+      - $ref: '#/components/parameters/columns'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/orderby'
+      - $ref: '#/components/parameters/limit'
+      summary: List all employees.
+      description: List all employees.
+      responses:
+        '200':
+          description: List all employees.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Employee'
+    parameters:
+    - $ref: '#/components/parameters/companyID'
+  /api/v1.0/companies/{companyID}/setup/accounts/costCenters/:
+    get:
+      operationId: getCostCenters
+      parameters:
+      - $ref: '#/components/parameters/search'
+      - $ref: '#/components/parameters/columns'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/orderby'
+      - $ref: '#/components/parameters/limit'
+      summary: List all cost centers.
+      description: List all cost centers.
+      responses:
+        '200':
+          description: List all cost centers.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CostCenter'
+    parameters:
+    - $ref: '#/components/parameters/companyID'
+  /api/v1.0/companies/{companyID}/jobs/:
+    get:
+      operationId: getJobs
+      parameters:
+      - $ref: '#/components/parameters/search'
+      - $ref: '#/components/parameters/columns'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/orderby'
+      - $ref: '#/components/parameters/limit'
+      summary: List all jobs.
+      description: List all jobs.
+      responses:
+        '200':
+          description: List all jobs.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Job'
+    parameters:
+    - $ref: '#/components/parameters/companyID'
+  /api/v1.0/companies/{companyID}/schedules/:
+    get:
+      operationId: getSchedules
+      parameters:
+      - $ref: '#/components/parameters/search'
+      - $ref: '#/components/parameters/columns'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/orderby'
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/JobID'
+      - $ref: '#/components/parameters/QuoteID'
+      - $ref: '#/components/parameters/LeadID'
+      summary: List all schedules.
+      description: List all schedules.
+      responses:
+        '200':
+          description: List all schedules.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Schedule'
+    parameters:
+    - $ref: '#/components/parameters/companyID'
+  /api/v1.0/companies/{companyID}/setup/activities/:
+    get:
+      operationId: getActivities
+      parameters:
+      - $ref: '#/components/parameters/search'
+      - $ref: '#/components/parameters/columns'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/orderby'
+      - $ref: '#/components/parameters/limit'
+      summary: List all activities.
+      description: List all activities.
+      responses:
+        '200':
+          description: List all activities.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Activity'
+    parameters:
+    - $ref: '#/components/parameters/companyID'
+  /api/v1.0/companies/{companyID}/sites/:
+    get:
+      operationId: getSites
+      parameters:
+      - $ref: '#/components/parameters/search'
+      - $ref: '#/components/parameters/columns'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/orderby'
+      - $ref: '#/components/parameters/limit'
+      summary: List all sites.
+      description: List all sites.
+      responses:
+        '200':
+          description: List all sites.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Site'
+    parameters:
+    - $ref: '#/components/parameters/companyID'
+  /api/v1.0/companies/{companyID}/leads/:
+    get:
+      operationId: getLeads
+      parameters:
+      - $ref: '#/components/parameters/search'
+      - $ref: '#/components/parameters/columns'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/orderby'
+      - $ref: '#/components/parameters/limit'
+      summary: List all leads.
+      description: List all leads.
+      responses:
+        '200':
+          description: List all leads.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Lead'
+    parameters:
+    - $ref: '#/components/parameters/companyID'
+  /api/v1.0/companies/{companyID}/quotes/:
+    get:
+      operationId: getQuotes
+      parameters:
+      - $ref: '#/components/parameters/search'
+      - $ref: '#/components/parameters/columns'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/orderby'
+      - $ref: '#/components/parameters/limit'
+      summary: List all quotes.
+      description: List all quotes.
+      responses:
+        '200':
+          description: List all quotes.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Quote'
+    parameters:
+    - $ref: '#/components/parameters/companyID'
+components:
+  parameters:
+    companyID:
+      name: companyID
+      in: path
+      required: true
+      schema:
+        type: string
+        default: 0
+      description: "(Required) A build with Multi-company setup may have companyID >= 0, other builds use 0 by default.<br
+        />\nFor more information about Multi-company, see:<br />\nhttps://helpguide.simprogroup.com/Content/Service-and-Enterprise/Multi-company.htm"
+    search:
+      name: search
+      in: query
+      schema:
+        type: string
+      description: Search result must have a match on all provided fields or a match on any of the provided fields.
+    columns:
+      name: columns
+      in: query
+      schema:
+        type: string
+      description: When listing or searching a resource, specify which columns to be displayed
+    pageSize:
+      name: pageSize
+      in: query
+      schema:
+        type: string
+      description: The maximum number of results to be returned by a request.
+    page:
+      name: page
+      in: query
+      schema:
+        type: string
+      description: Set the page number on paginated request
+    orderby:
+      name: orderby
+      in: query
+      schema:
+        type: string
+      description: Set the order of the requested records, by prefixing '-' on the column name you can get records by 
+        descending order. Comma separated list can also be provided.
+    limit:
+      name: limit
+      in: query
+      schema:
+        type: string
+      description: Set the limit of number of records in a request
+    JobID:
+      name: JobID
+      in: query
+      schema:
+        type: string
+      description: 'Filter schedules by job ID. Supports operators: lt(), le(), gt(), ge(), ne(), between(), in(), !in().'
+    QuoteID:
+      name: QuoteID
+      in: query
+      schema:
+        type: string
+      description: 'Filter schedules by quote ID. Supports operators: lt(), le(), gt(), ge(), ne(), between(), in(), !in().'
+    LeadID:
+      name: LeadID
+      in: query
+      schema:
+        type: string
+      description: 'Filter schedules by lead ID. Supports operators: lt(), le(), gt(), ge(), ne(), between(), in(), !in().'
+  schemas:
+    Address:
+      type: object
+      required:
+        - Address
+        - City
+        - Country
+        - PostalCode
+      properties:
+        Address:
+          type: string
+        City:
+          type: string
+        Country:
+          type: string
+        PostalCode:
+          type: string
+        State:
+          type: string
+    Site:
+      type: object
+      required:
+        - Address
+        - Name
+        - DateModified
+        - ID
+      properties:
+        Address:
+          $ref: '#/components/schemas/Address'
+        Name:
+          type: string
+        DateModified:
+          type: string
+        ID:
+          type: string
+    Activity:
+      type: object
+      required:
+        - ID
+        - Name
+      properties:
+        ID:
+          type: string
+        Name:
+          type: string
+    Staff:
+      type: object
+      required:
+        - ID
+        - Name
+      properties:
+        ID:
+          type: string
+        Name:
+          type: string
+    CostCenter:
+      type: object
+      required:
+        - ID
+        - Name
+      properties:
+        ID:
+          type: string
+        Name:
+          type: string
+    Customer:
+      type: object
+      required:
+        - ID
+        - CompanyName
+      properties:
+        ID:
+          type: string
+        CompanyName:
+          type: string
+    Employee:
+      type: object
+      required:
+        - ID
+        - Name
+      properties:
+        ID:
+          type: string
+        Name:
+          type: string
+        Position:
+          type: string
+    Job:
+      type: object
+      required:
+        - ID
+        - Name
+        - Customer
+        - DateModified
+        - Reference
+        - Site
+        - Stage
+        - Status
+        - Type
+      properties:
+        ID:
+          type: string
+        Name:
+          type: string
+        Customer:
+          $ref: '#/components/schemas/Customer'
+        DateModified:
+          type: string
+        Description:
+          type: string
+        Site:
+          $ref: '#/components/schemas/JobSite'
+        Stage:
+          type: string
+        Status:
+          $ref: '#/components/schemas/JobStatus'
+        Type:
+          type: string
+          enum:
+            - Project
+            - Service
+            - Prepaid
+    ScheduleRate:
+      type: object
+      required:
+        - ID
+        - Name
+      properties:
+        ID:
+          type: string
+        Name:
+          type: string
+    Section:
+      type: object
+      properties:
+        ID:
+          type: string
+        Name:
+          type: string
+    JobSite:
+      type: object
+      required:
+        - ID
+        - Name
+      properties:
+        ID:
+          type: string
+        Name:
+          type: string
+    JobStatus:
+      type: object
+      required:
+        - ID
+        - Name
+        - Color
+      properties:
+        ID:
+          type: string
+        Name:
+          type: string
+        Color:
+          type: string
+    ScheduleBlock:
+      type: object
+      required:
+        - ISO8601EndTime
+        - ISO8601StartTime
+        - ScheduleRate
+      properties:
+        EndTime:
+          type: string
+        Hrs:
+          type: number
+        ISO8601EndTime:
+          type: string
+        ISO8601StartTime:
+          type: string
+        ScheduleRate:
+          $ref: '#/components/schemas/ScheduleRate'
+        StartTime:
+          type: string
+    Schedule:
+      type: object
+      required:
+        - Blocks
+        - Date
+        - DateModified
+        - ID
+        - Notes
+        - Reference
+        - Staff
+        - Type
+        - Name
+      properties:
+        Blocks:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScheduleBlock'
+        Date:
+          type: string
+        DateModified:
+          type: string
+        ID:
+          type: string
+        Notes:
+          type: string
+        Reference:
+          type: string
+        Staff:
+          $ref: '#/components/schemas/Staff'
+        Type:
+          type: string
+          enum:
+            - lead
+            - quote
+            - job
+            - activity
+    Quote:
+      type: object
+      required:
+        - ID
+        - Name
+      properties:
+        ID:
+          type: string
+        Name:
+          type: string
+    Lead:
+      type: object
+      required:
+        - ID
+        - Name
+      properties:
+        ID:
+          type: string
+        Name:
+          type: string

@@ -1,0 +1,17 @@
+version: "3"
+
+agent:
+  # https://dashboard.ngrok.com/get-started/setup/windows
+  authtoken: 39Z0xpisKa57iVqE1m5Wkmzt9j1_3rcibzHzRLy4pR628wobq
+
+endpoints:
+  # `ngrok start simpro`
+  - name: simpro 
+    # Callback : https://grainconnect.simprosuite.com/ => settings => API => Webhook Subscriptions
+    # API Docs: https://developer.simprogroup.com/apidoc/?page=cd8682773ab1b07fdc9661984e281ce3
+    url: https://extravascular-nonauthoritatively-jay.ngrok-free.dev 
+    upstream:
+      url: http://localhost:3000
+    
+
+

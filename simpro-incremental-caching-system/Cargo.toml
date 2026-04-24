@@ -1,0 +1,70 @@
+[package]
+name = "simpro_incremental_caching_system"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+# ----------------------------
+# ERROR ENUMERATION
+# ----------------------------
+thiserror = "1"
+# ----------------------------
+# ERROR ERASURE
+# ----------------------------
+anyhow = "1.0.102"
+# ----------------------------
+# ASYNC RUNTIME
+# ----------------------------
+tokio = { version = "1.49", features = ["macros", "rt-multi-thread"] }
+# ----------------------------
+# WEB FRAMEWORK
+# ----------------------------
+axum = "0.8.8"
+# ----------------------------
+# HTTP CLIENT
+# ----------------------------
+reqwest = { version = "0.13", features = ["json", "stream"], default-features = false }
+# ----------------------------
+# SQL QUERY BUILDING
+# ----------------------------
+diesel = { version = "2.3.7", features = ["postgres", "chrono", "numeric", "r2d2"], default-features = false }
+diesel-derive-enum = { version = "2.1.0", features = ["postgres"] }
+r2d2 = "0.8"
+# ----------------------------
+# JSON DESERIALIZATION
+# ----------------------------
+serde = { version = "1.0", features = ["derive"], default-features = false }
+serde_json = "1.0"
+# ----------------------------
+# ENVIRONMENT VARIABLES
+# ----------------------------
+dotenvy = "0.15"
+# -----------------------------
+# MESSAGE VERIFICATION
+# -----------------------------
+hex = "0.4.3"
+hmac = "0.12.1"
+sha1 = "0.10.6"
+# ----------------------------
+# THREAD-LOCAL LOGGING
+# ----------------------------
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "fmt"] }
+# -------------------------------
+# HTTP REQUEST-RESPONSE LOGGING
+# -------------------------------
+tower = "0.5"
+tower-http = { version = "0.6", features = ["trace"] }
+tracing-error = "0.2.1"
+strum = "0.28.0"
+strum_macros = "0.28.0"
+progenitor-client = { git = "https://github.com/oxidecomputer/progenitor" }
+chrono = "0.4.44"
+
+# https://github.com/oxidecomputer/progenitor#buildrs
+[build-dependencies]
+prettyplease = "0.2.22"
+progenitor = { git = "https://github.com/oxidecomputer/progenitor" }
+serde_json = "1.0"
+serde_yaml = "0.9"
+syn = "2.0"

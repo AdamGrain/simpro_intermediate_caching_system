@@ -1,0 +1,1611 @@
+openapi: 3.0.3
+info:
+  title: simPRO_API_Collection
+  version: 1.0.0
+  contact: {}
+servers:
+- url: /
+paths:
+  /api/v1.0/companies/{companyID}/customers/:
+    get:
+      operationId: getCustomers
+      parameters:
+      - $ref: '#/components/parameters/search'
+      - $ref: '#/components/parameters/columns'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/orderby'
+      - $ref: '#/components/parameters/limit'
+      tags:
+      - api
+      - v1.0
+      - companies
+      - '{companyID}'
+      - customers
+      summary: List all customers.
+      description: List all customers.
+      responses:
+        '200':
+          description: List all customers.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Customer'
+                example:
+                - CompanyName: <string>
+                  FamilyName: <string>
+                  GivenName: <string>
+                  ID: <integer>
+                  Type: Individual
+                  _href: <string>
+                - CompanyName: <string>
+                  FamilyName: <string>
+                  GivenName: <string>
+                  ID: <integer>
+                  Type: Individual
+                  _href: <string>
+              examples:
+                List all customers.:
+                  value:
+                  - CompanyName: <string>
+                    FamilyName: <string>
+                    GivenName: <string>
+                    ID: <integer>
+                    Type: Individual
+                    _href: <string>
+                  - CompanyName: <string>
+                    FamilyName: <string>
+                    GivenName: <string>
+                    ID: <integer>
+                    Type: Individual
+                    _href: <string>
+    parameters:
+    - $ref: '#/components/parameters/companyID'
+  /api/v1.0/companies/{companyID}/employees/:
+    get:
+      operationId: getEmployees
+      parameters:
+      - $ref: '#/components/parameters/search'
+      - $ref: '#/components/parameters/columns'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/orderby'
+      - $ref: '#/components/parameters/limit'
+      tags:
+      - api
+      - v1.0
+      - companies
+      - '{companyID}'
+      - employees
+      summary: List all employees.
+      description: List all employees.
+      responses:
+        '200':
+          description: List all employees.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Employee'
+              examples:
+                List all employees.:
+                  value:
+                  - ID: <integer>
+                    Name: <string>
+                  - ID: <integer>
+                    Name: <string>
+    parameters:
+    - $ref: '#/components/parameters/companyID'
+  /api/v1.0/companies/{companyID}/jobCostCenters/:
+    get:
+      operationId: getJobCostCenters
+      parameters:
+      - $ref: '#/components/parameters/search'
+      - $ref: '#/components/parameters/columns'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/orderby'
+      - $ref: '#/components/parameters/limit'
+      tags:
+      - api
+      - v1.0
+      - companies
+      - '{companyID}'
+      - jobCostCenters
+      summary: List all cost centers.
+      description: List all cost centers.
+      responses:
+        '200':
+          description: List all cost centers.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JobCostCenter'
+                example:
+                - CostCenter:
+                    ID: <integer>
+                    Name: <string>
+                  DateModified: <dateTime>
+                  ID: <integer>
+                  Job:
+                    ID: <integer>
+                    Name: <string>
+                    Stage: <string>
+                    Status: <string>
+                    Type: <string>
+                  Name: <string>
+                  Section:
+                    ID: <integer>
+                    Name: <string>
+                  _href: <string>
+                - CostCenter:
+                    ID: <integer>
+                    Name: <string>
+                  DateModified: <dateTime>
+                  ID: <integer>
+                  Job:
+                    ID: <integer>
+                    Name: <string>
+                    Stage: <string>
+                    Status: <string>
+                    Type: <string>
+                  Name: <string>
+                  Section:
+                    ID: <integer>
+                    Name: <string>
+                  _href: <string>
+              examples:
+                List all cost centers.:
+                  value:
+                  - CostCenter:
+                      ID: <integer>
+                      Name: <string>
+                    DateModified: <dateTime>
+                    ID: <integer>
+                    Job:
+                      ID: <integer>
+                      Name: <string>
+                      Stage: <string>
+                      Status: <string>
+                      Type: <string>
+                    Name: <string>
+                    Section:
+                      ID: <integer>
+                      Name: <string>
+                    _href: <string>
+                  - CostCenter:
+                      ID: <integer>
+                      Name: <string>
+                    DateModified: <dateTime>
+                    ID: <integer>
+                    Job:
+                      ID: <integer>
+                      Name: <string>
+                      Stage: <string>
+                      Status: <string>
+                      Type: <string>
+                    Name: <string>
+                    Section:
+                      ID: <integer>
+                      Name: <string>
+                    _href: <string>
+    parameters:
+    - $ref: '#/components/parameters/companyID'
+  /api/v1.0/companies/{companyID}/jobs/:
+    get:
+      operationId: getJobs
+      parameters:
+      - $ref: '#/components/parameters/search'
+      - $ref: '#/components/parameters/columns'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/orderby'
+      - $ref: '#/components/parameters/limit'
+      tags:
+      - api
+      - v1.0
+      - companies
+      - '{companyID}'
+      - jobs
+      summary: List all jobs.
+      description: List all jobs.
+      responses:
+        '200':
+          description: List all jobs.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Job'
+              examples:
+                List all jobs.:
+                  value:
+                  - Description: <string>
+                    ID: <integer>
+                    Total:
+                      ExTax: 56496823355.99
+                      IncTax: 90892.7
+                      Tax: 30891107570.7
+                  - Description: <string>
+                    ID: <integer>
+                    Total:
+                      ExTax: 5
+                      IncTax: 7136244.66
+                      Tax: 8756539.2
+    parameters:
+    - $ref: '#/components/parameters/companyID'
+  /api/v1.0/companies/{companyID}/leads/:
+    get:
+      operationId: getLeads
+      parameters:
+      - $ref: '#/components/parameters/search'
+      - $ref: '#/components/parameters/columns'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/orderby'
+      - $ref: '#/components/parameters/limit'
+      tags:
+      - api
+      - v1.0
+      - companies
+      - '{companyID}'
+      - leads
+      summary: List all leads.
+      description: List all leads.
+      responses:
+        '200':
+          description: List all leads.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Lead'
+              examples:
+                List all leads.:
+                  value:
+                  - Customer:
+                      CompanyName: <string>
+                      FamilyName: <string>
+                      GivenName: <string>
+                      ID: <integer>
+                      Type: Individual
+                    ID: <integer>
+                    Site:
+                      ID: <integer>
+                      Name: <string>
+                  - Customer:
+                      CompanyName: <string>
+                      FamilyName: <string>
+                      GivenName: <string>
+                      ID: <integer>
+                      Type: Company
+                    ID: <integer>
+                    Site:
+                      ID: <integer>
+                      Name: <string>
+    parameters:
+    - $ref: '#/components/parameters/companyID'
+  /api/v1.0/companies/{companyID}/quotes/:
+    get:
+      operationId: getQuotes
+      parameters:
+      - $ref: '#/components/parameters/search'
+      - $ref: '#/components/parameters/columns'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/orderby'
+      - $ref: '#/components/parameters/limit'
+      tags:
+      - api
+      - v1.0
+      - companies
+      - '{companyID}'
+      - quotes1
+      summary: List all quotes.
+      description: List all quotes.
+      responses:
+        '200':
+          description: List all quotes.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Quote'
+              examples:
+                List all quotes.:
+                  value:
+                  - Description: <string>
+                    ID: <integer>
+                    Total:
+                      ExTax: 315879.1
+                      IncTax: 4531368
+                      Tax: 7865912299.8
+                  - Description: <string>
+                    ID: <integer>
+                    Total:
+                      ExTax: 3267930.2
+                      IncTax: 4
+                      Tax: 8399109.72
+    parameters:
+    - $ref: '#/components/parameters/companyID'
+  /api/v1.0/companies/{companyID}/schedules/:
+    get:
+      operationId: getSchedules
+      parameters:
+      - $ref: '#/components/parameters/search'
+      - $ref: '#/components/parameters/columns'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/orderby'
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/JobID'
+      - $ref: '#/components/parameters/QuoteID'
+      - $ref: '#/components/parameters/LeadID'
+      tags:
+      - api
+      - v1.0
+      - companies
+      - '{companyID}'
+      - schedules1234
+      summary: List all schedules.
+      description: List all schedules.
+      responses:
+        '200':
+          description: List all schedules.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Schedule'
+              examples:
+                List all schedules.:
+                  value:
+                  - Blocks:
+                    - EndTime: <string>
+                      Hrs: 3541731922
+                      ISO8601EndTime: <dateTime>
+                      ISO8601StartTime: <dateTime>
+                      ScheduleRate:
+                        ID: <integer>
+                        Name: <string>
+                      StartTime: <string>
+                    - EndTime: <string>
+                      Hrs: 77399.7
+                      ISO8601EndTime: <dateTime>
+                      ISO8601StartTime: <dateTime>
+                      ScheduleRate:
+                        ID: <integer>
+                        Name: <string>
+                      StartTime: <string>
+                    Date: <date>
+                    ID: <integer>
+                    Project: <string>
+                    Reference: <string>
+                    Staff:
+                      ID: <integer>
+                      Name: <string>
+                      Type: contractor
+                      TypeId: <integer>
+                    TotalHours: 8
+                    Type: lead
+                  - Blocks:
+                    - EndTime: <string>
+                      Hrs: 6
+                      ISO8601EndTime: <dateTime>
+                      ISO8601StartTime: <dateTime>
+                      ScheduleRate:
+                        ID: <integer>
+                        Name: <string>
+                      StartTime: <string>
+                    - EndTime: <string>
+                      Hrs: 724.1
+                      ISO8601EndTime: <dateTime>
+                      ISO8601StartTime: <dateTime>
+                      ScheduleRate:
+                        ID: <integer>
+                        Name: <string>
+                      StartTime: <string>
+                    Date: <date>
+                    ID: <integer>
+                    Project: <string>
+                    Reference: <string>
+                    Staff:
+                      ID: <integer>
+                      Name: <string>
+                      Type: contractor
+                      TypeId: <integer>
+                    TotalHours: 8600041800.1
+                    Type: lead
+    parameters:
+    - $ref: '#/components/parameters/companyID'
+  /api/v1.0/companies/{companyID}/setup/activities/:
+    get:
+      operationId: getActivities
+      parameters:
+      - $ref: '#/components/parameters/search'
+      - $ref: '#/components/parameters/columns'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/orderby'
+      - $ref: '#/components/parameters/limit'
+      tags:
+      - api
+      - v1.0
+      - companies
+      - '{companyID}'
+      - setup
+      - activities
+      summary: List all activities.
+      description: List all activities.
+      responses:
+        '200':
+          description: List all activities.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Activity'
+              examples:
+                List all activities.:
+                  value:
+                  - ID: <integer>
+                    Name: <string>
+                  - ID: <integer>
+                    Name: <string>
+    parameters:
+    - $ref: '#/components/parameters/companyID'
+  /api/v1.0/companies/{companyID}/sites/:
+    get:
+      operationId: getSites
+      parameters:
+      - $ref: '#/components/parameters/search'
+      - $ref: '#/components/parameters/columns'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/orderby'
+      - $ref: '#/components/parameters/limit'
+      tags:
+      - api
+      - v1.0
+      - companies
+      - '{companyID}'
+      - sites1
+      summary: List all sites.
+      description: List all sites.
+      responses:
+        '200':
+          description: List all sites.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Site'
+              examples:
+                List all sites.:
+                  value:
+                  - ID: <integer>
+                    Name: <string>
+                  - ID: <integer>
+                    Name: <string>
+    parameters:
+    - $ref: '#/components/parameters/companyID'
+tags:
+- name: api
+- name: v1.0
+- name: companies
+- name: '{companyID}'
+- name: accounts
+- name: journals
+- name: payable
+- name: contacts
+- name: '{contactID}'
+- name: invoices
+- name: receivable
+- name: contacts1
+- name: '{contactID}1'
+- name: invoices1
+- name: '{invoiceID}'
+- name: payments
+- name: '{paymentID}'
+- name: activitySchedules
+- name: '{scheduleID}'
+- name: available
+- name: technicians
+- name: catalogGroups
+- name: '{groupID}'
+- name: subGroups
+- name: '{subGroupID}'
+- name: catalogInventories
+- name: catalogs
+- name: '{catalogID}'
+- name: attachments
+- name: files
+- name: '{fileID}'
+- name: folders
+- name: '{folderID}'
+- name: currencies
+- name: '{currencyID}'
+- name: customFields
+- name: '{customFieldID}'
+- name: inventories
+- name: '{storageDeviceID}'
+- name: mergeCatalogs
+- name: pricingTiers
+- name: '{pricingTierID}'
+- name: prices
+- name: '{priceID}'
+- name: vendors
+- name: '{catalogVendorID}'
+- name: contacts12
+- name: '{contactID}12'
+- name: customFields1
+- name: '{customFieldID}1'
+- name: contractorInvoices
+- name: '{contractorInvoiceID}'
+- name: attachments1
+- name: files1
+- name: '{fileID}1'
+- name: folders1
+- name: '{folderID}1'
+- name: contractorVariances
+- name: customFields12
+- name: '{customFieldID}12'
+- name: variances
+- name: '{varianceID}'
+- name: contractorJobs
+- name: '{contractorJobID}'
+- name: customFields123
+- name: '{customFieldID}123'
+- name: contractorVariances1
+- name: '{contractorVarianceID}'
+- name: contractors
+- name: '{contractorID}'
+- name: attachments12
+- name: files12
+- name: '{fileID}12'
+- name: folders12
+- name: '{folderID}12'
+- name: customFields1234
+- name: '{customFieldID}1234'
+- name: licences
+- name: '{licenceID}'
+- name: attachments123
+- name: files123
+- name: '{fileID}123'
+- name: timesheets
+- name: creditNotes
+- name: '{creditNoteID}'
+- name: customFields12345
+- name: '{customFieldID}12345'
+- name: notes
+- name: '{noteID}'
+- name: customerAssets
+- name: '{customerAssetID}'
+- name: serviceLevels
+- name: '{serviceLevelID}'
+- name: testHistory
+- name: customerContracts
+- name: '{contractID}'
+- name: inflation
+- name: '{inflationID}'
+- name: customerInvoices
+- name: '{customerInvoiceID}'
+- name: customerLaborRates
+- name: customerPayments
+- name: '{customerPaymentID}'
+- name: customerResponseTimes
+- name: customers
+- name: companies1
+- name: '{customerID}'
+- name: '{customerID}1'
+- name: attachments1234
+- name: files1234
+- name: '{fileID}1234'
+- name: folders123
+- name: '{folderID}123'
+- name: companies12
+- name: '{customerCompanyID}'
+- name: contacts123
+- name: '{contactID}123'
+- name: customFields123456
+- name: '{customFieldID}123456'
+- name: contracts
+- name: '{contractID}1'
+- name: customFields1234567
+- name: '{customFieldID}1234567'
+- name: inflation1
+- name: '{inflationID}1'
+- name: laborRates
+- name: '{laborRateID}'
+- name: serviceLevels1
+- name: '{serviceLevelID}1'
+- name: assetTypes
+- name: '{assetTypeID}'
+- name: customFields12345678
+- name: '{customFieldID}12345678'
+- name: laborRates1
+- name: '{laborRateID}1'
+- name: memberships
+- name: '{customerMembershipID}'
+- name: notes1
+- name: '{noteID}1'
+- name: responseTimes
+- name: '{responseTimeID}'
+- name: tasks
+- name: '{taskID}'
+- name: individuals
+- name: '{customerID}12'
+- name: dataFeedEvents
+- name: '{DataFeedEventID}'
+- name: employees
+- name: '{employeeID}'
+- name: attachments12345
+- name: files12345
+- name: '{fileID}12345'
+- name: folders1234
+- name: '{folderID}1234'
+- name: customFields123456789
+- name: '{customFieldID}123456789'
+- name: licences1
+- name: '{licenceID}1'
+- name: attachments123456
+- name: files123456
+- name: '{fileID}123456'
+- name: timesheets1
+- name: inventoryJournals
+- name: '{inventoryJournalID}'
+- name: invoices12
+- name: '{invoiceID}1'
+- name: attachForm
+- name: costCenters
+- name: '{costCenterID}'
+- name: creditNotes1
+- name: '{creditNoteID}1'
+- name: customFields12345678910
+- name: '{customFieldID}12345678910'
+- name: notes12
+- name: '{noteID}12'
+- name: customFields1234567891011
+- name: '{customFieldID}1234567891011'
+- name: formTemplates
+- name: getInvoicePaymentLink
+- name: notes123
+- name: '{noteID}123'
+- name: viewForm
+- name: '{formTemplateID:[0-9]+}'
+- name: retainages
+- name: '{retainageID}'
+- name: jobCostCenters
+- name: '{jobCostCenterID}'
+- name: assets
+- name: '{assetID}'
+- name: catalogs1
+- name: '{catalogID}1'
+- name: labor
+- name: '{laborID}'
+- name: oneOffs
+- name: '{oneOffID}'
+- name: prebuilds
+- name: '{prebuildID}'
+- name: serviceFees
+- name: '{serviceFeeID}'
+- name: stock
+- name: '{stockID}'
+- name: jobWorkOrders
+- name: '{jobWorkOrderID}'
+- name: jobs
+- name: '{jobID}'
+- name: attachForm1
+- name: attachments1234567
+- name: files1234567
+- name: '{fileID}1234567'
+- name: folders12345
+- name: '{folderID}12345'
+- name: customFields123456789101112
+- name: '{customFieldID}123456789101112'
+- name: formTemplates1
+- name: invoices123
+- name: '{invoiceID}12'
+- name: customFields12345678910111213
+- name: '{customFieldID}12345678910111213'
+- name: lock
+- name: notes1234
+- name: '{noteID}1234'
+- name: sections
+- name: '{sectionID}'
+- name: costCenters1
+- name: '{costCenterID}1'
+- name: assets1
+- name: '{assetID}1'
+- name: catalogs12
+- name: '{catalogID}12'
+- name: contractorJobs1
+- name: '{contractorJobID}1'
+- name: attachments12345678
+- name: files12345678
+- name: '{fileID}12345678'
+- name: folders123456
+- name: '{folderID}123456'
+- name: customFields1234567891011121314
+- name: '{customFieldID}1234567891011121314'
+- name: labor1
+- name: '{laborID}1'
+- name: lock1
+- name: oneOffs1
+- name: '{oneOffID}1'
+- name: prebuilds1
+- name: '{prebuildID}1'
+- name: schedules
+- name: '{scheduleID}1'
+- name: serviceFees1
+- name: '{serviceFeeID}1'
+- name: stock1
+- name: '{stockID}1'
+- name: tasks1
+- name: '{taskID}1'
+- name: workOrders
+- name: '{workOrderID}'
+- name: assets12
+- name: '{assetID}12'
+- name: testResults
+- name: attachments123456789
+- name: files123456789
+- name: '{fileID}123456789'
+- name: attachments12345678910
+- name: files12345678910
+- name: '{fileID}12345678910'
+- name: customFields123456789101112131415
+- name: '{customFieldID}123456789101112131415'
+- name: mobileSignatures
+- name: tasks12
+- name: '{taskID}12'
+- name: timelines
+- name: viewForm1
+- name: '{formTemplateID:[0-9]+}1'
+- name: leads
+- name: '{leadID}'
+- name: attachments1234567891011
+- name: files1234567891011
+- name: '{fileID}1234567891011'
+- name: folders1234567
+- name: '{folderID}1234567'
+- name: customFields12345678910111213141516
+- name: '{customFieldID}12345678910111213141516'
+- name: schedules1
+- name: '{scheduleID}12'
+- name: licences12
+- name: logs
+- name: contacts1234
+- name: '{logID}'
+- name: contractorJobs12
+- name: '{logID}1'
+- name: customerInvoices1
+- name: '{logID}12'
+- name: customers1
+- name: '{logID}123'
+- name: jobs1
+- name: '{logID}1234'
+- name: mobileStatus
+- name: '{logID}12345'
+- name: quotes
+- name: '{logID}123456'
+- name: recurringInvoices
+- name: '{logID}1234567'
+- name: schedules12
+- name: '{logID}12345678'
+- name: vendorOrders
+- name: '{logID}123456789'
+- name: notes12345
+- name: customers12
+- name: jobs12
+- name: recurringJobs
+- name: plantTypeCustomFields
+- name: '{plantTypeCustomFieldID}'
+- name: plantTypes
+- name: '{plantTypeID}'
+- name: customFields1234567891011121314151617
+- name: '{plantTypeCustomFieldID}1'
+- name: plants
+- name: '{plantID}'
+- name: attachments123456789101112
+- name: files123456789101112
+- name: '{fileID}123456789101112'
+- name: folders12345678
+- name: '{folderID}12345678'
+- name: customFields123456789101112131415161718
+- name: '{customFieldID}1234567891011121314151617'
+- name: services
+- name: '{serviceID}'
+- name: timesheets12
+- name: plants1
+- name: '{plantID}1'
+- name: prebuildCatalogs
+- name: prebuildGroups
+- name: '{groupID}1'
+- name: subGroups1
+- name: '{subGroupID}1'
+- name: prebuilds12
+- name: '{prebuildID}12'
+- name: attachments12345678910111213
+- name: files12345678910111213
+- name: '{fileID}12345678910111213'
+- name: folders123456789
+- name: '{folderID}123456789'
+- name: catalogs123
+- name: '{catalogID}123'
+- name: customFields12345678910111213141516171819
+- name: '{customFieldID}123456789101112131415161718'
+- name: setPrice
+- name: '{setPricePrebuildID}'
+- name: standardPrice
+- name: '{standardPricePrebuildID}'
+- name: quoteCostCenters
+- name: '{quoteCostCenterID}'
+- name: quoteWorkOrders
+- name: '{quoteWorkOrderID}'
+- name: quotes1
+- name: '{quoteID}'
+- name: attachments1234567891011121314
+- name: files1234567891011121314
+- name: '{fileID}1234567891011121314'
+- name: folders12345678910
+- name: '{folderID}12345678910'
+- name: customFields1234567891011121314151617181920
+- name: '{customFieldID}12345678910111213141516171819'
+- name: lock12
+- name: notes123456
+- name: '{noteID}12345'
+- name: sections1
+- name: '{sectionID}1'
+- name: costCenters12
+- name: '{costCenterID}12'
+- name: assets123
+- name: '{assetID}123'
+- name: catalogs1234
+- name: '{catalogID}1234'
+- name: contractorJobs123
+- name: '{contractorJobID}12'
+- name: attachments123456789101112131415
+- name: files123456789101112131415
+- name: '{fileID}123456789101112131415'
+- name: folders1234567891011
+- name: '{folderID}1234567891011'
+- name: customFields123456789101112131415161718192021
+- name: '{customFieldID}1234567891011121314151617181920'
+- name: labor12
+- name: '{laborID}12'
+- name: oneOffs12
+- name: '{oneOffID}12'
+- name: prebuilds123
+- name: '{prebuildID}123'
+- name: schedules123
+- name: '{scheduleID}123'
+- name: serviceFees12
+- name: '{serviceFeeID}12'
+- name: tasks123
+- name: '{taskID}123'
+- name: workOrders1
+- name: '{workOrderID}1'
+- name: assets1234
+- name: '{assetID}1234'
+- name: attachments12345678910111213141516
+- name: files12345678910111213141516
+- name: '{fileID}12345678910111213141516'
+- name: customFields12345678910111213141516171819202122
+- name: '{customFieldID}123456789101112131415161718192021'
+- name: tasks1234
+- name: '{taskID}1234'
+- name: timelines1
+- name: recurringInvoiceCostCenters
+- name: '{recurringInvoiceCostCenterID}'
+- name: recurringInvoiceSections
+- name: '{recurringInvoiceSectionID}'
+- name: recurringInvoices1
+- name: '{recurringInvoiceID}'
+- name: attachments1234567891011121314151617
+- name: files1234567891011121314151617
+- name: '{fileID}1234567891011121314151617'
+- name: folders123456789101112
+- name: '{folderID}123456789101112'
+- name: customFields1234567891011121314151617181920212223
+- name: '{customFieldID}12345678910111213141516171819202122'
+- name: sections12
+- name: '{sectionID}12'
+- name: costCenters123
+- name: '{costCenterID}123'
+- name: catalogs12345
+- name: '{catalogID}12345'
+- name: labor123
+- name: '{laborID}123'
+- name: oneOffs123
+- name: '{oneOffID}123'
+- name: prebuilds1234
+- name: '{prebuildID}1234'
+- name: serviceFees123
+- name: '{serviceFeeID}123'
+- name: takeOffTemplates
+- name: timelines12
+- name: recurringJobCostCenters
+- name: '{recurringJobCostCenterID}'
+- name: recurringJobSections
+- name: '{recurringJobSectionID}'
+- name: recurringJobs1
+- name: '{recurringJobID}'
+- name: attachments123456789101112131415161718
+- name: files123456789101112131415161718
+- name: '{fileID}123456789101112131415161718'
+- name: folders12345678910111213
+- name: '{folderID}12345678910111213'
+- name: customFields123456789101112131415161718192021222324
+- name: '{customFieldID}1234567891011121314151617181920212223'
+- name: notes1234567
+- name: '{noteID}123456'
+- name: sections123
+- name: '{sectionID}123'
+- name: costCenters1234
+- name: '{costCenterID}1234'
+- name: assets12345
+- name: '{assetID}12345'
+- name: catalogs123456
+- name: '{catalogID}123456'
+- name: labor1234
+- name: '{laborID}1234'
+- name: oneOffs1234
+- name: '{oneOffID}1234'
+- name: prebuilds12345
+- name: '{prebuildID}12345'
+- name: serviceFees1234
+- name: '{serviceFeeID}1234'
+- name: takeOffTemplates1
+- name: timelines123
+- name: reports
+- name: jobs123
+- name: costToComplete
+- name: financial
+- name: operations
+- name: schedules1234
+- name: '{scheduleID}1234'
+- name: setup
+- name: accounts1
+- name: accCategories
+- name: '{accCategoryID}'
+- name: businessGroups
+- name: '{businessGroupID}'
+- name: chartOfAccounts
+- name: '{accountID}'
+- name: costCenters12345
+- name: '{costCenterID}12345'
+- name: paymentMethods
+- name: '{paymentMethodID}'
+- name: paymentTerms
+- name: '{paymentTermID}'
+- name: taxCodes
+- name: combines
+- name: '{combineTaxCodeID}'
+- name: components
+- name: '{componentTaxCodeID}'
+- name: singles
+- name: '{singleTaxCodeID}'
+- name: activities
+- name: '{activityID}'
+- name: archiveReasons
+- name: jobs1234
+- name: '{archiveReasonID}'
+- name: leads1
+- name: '{archiveReasonID}1'
+- name: quotes12
+- name: '{archiveReasonID}12'
+- name: assetTypeFailurePoints
+- name: '{assetTypeFailurePointID}'
+- name: assetTypeRecommendations
+- name: '{assetTypeRecommendationID}'
+- name: assetTypeTestReadings
+- name: '{assetTypeTestReadingID}'
+- name: assetTypes1
+- name: '{assetTypeID}1'
+- name: attachments12345678910111213141516171819
+- name: files12345678910111213141516171819
+- name: '{fileID}12345678910111213141516171819'
+- name: folders1234567891011121314
+- name: '{folderID}1234567891011121314'
+- name: customFields12345678910111213141516171819202122232425
+- name: '{assetTypeCustomFieldID}'
+- name: serviceLevels12
+- name: '{assetTypeServiceLevelID}'
+- name: failurePoints
+- name: '{failurePointID}'
+- name: recommendations
+- name: '{recommendationID}'
+- name: testReadings
+- name: '{assetTypeTestReadingID}1'
+- name: assets123456
+- name: serviceLevels123
+- name: '{serviceLevelID}12'
+- name: commissions
+- name: advanced
+- name: '{commissionID}'
+- name: basic
+- name: '{commissionID}1'
+- name: currencies1
+- name: '{currencyID}1'
+- name: customFields1234567891011121314151617181920212223242526
+- name: catalogs1234567
+- name: '{customFieldID}123456789101112131415161718192021222324'
+- name: contacts12345
+- name: '{customFieldID}12345678910111213141516171819202122232425'
+- name: contractorInvoices1
+- name: '{contractorInvoiceID}1'
+- name: contractorJobs1234
+- name: '{contractorJobID}123'
+- name: contractors1
+- name: '{customFieldID}1234567891011121314151617181920212223242526'
+- name: customerContacts
+- name: '{customFieldID}123456789101112131415161718192021222324252627'
+- name: customerContracts1
+- name: '{customFieldID}12345678910111213141516171819202122232425262728'
+- name: customers123
+- name: '{customFieldID}1234567891011121314151617181920212223242526272829'
+- name: employees1
+- name: '{customFieldID}123456789101112131415161718192021222324252627282930'
+- name: invoices1234
+- name: '{customFieldID}12345678910111213141516171819202122232425262728293031'
+- name: prebuilds123456
+- name: '{customFieldID}1234567891011121314151617181920212223242526272829303132'
+- name: projects
+- name: '{customFieldID}123456789101112131415161718192021222324252627282930313233'
+- name: siteContacts
+- name: '{customFieldID}12345678910111213141516171819202122232425262728293031323334'
+- name: sites
+- name: '{customFieldID}1234567891011121314151617181920212223242526272829303132333435'
+- name: tasks12345
+- name: '{customFieldID}123456789101112131415161718192021222324252627282930313233343536'
+- name: vendorContacts
+- name: '{customFieldID}12345678910111213141516171819202122232425262728293031323334353637'
+- name: vendorOrders1
+- name: '{customFieldID}1234567891011121314151617181920212223242526272829303132333435363738'
+- name: vendors1
+- name: '{customFieldID}123456789101112131415161718192021222324252627282930313233343536373839'
+- name: workOrders12
+- name: '{customFieldID}12345678910111213141516171819202122232425262728293031323334353637383940'
+- name: customerGroups
+- name: '{customerGroupID}'
+- name: customerProfiles
+- name: '{customerProfileID}'
+- name: defaults
+- name: labor12345
+- name: fitTimes
+- name: '{fitTimeID}'
+- name: laborRates12
+- name: '{laborRateID}12'
+- name: overhead
+- name: plantRates
+- name: '{plantRateID}'
+- name: scheduleRates
+- name: '{scheduleRateID}'
+- name: serviceFees12345
+- name: '{serviceFeeID}12345'
+- name: materials
+- name: pricingTiers1
+- name: '{pricingTierID}1'
+- name: purchasingStages
+- name: '{purchasingStageID}'
+- name: stockTakeReasons
+- name: '{optionID}'
+- name: stockTransferReasons
+- name: '{optionID}1'
+- name: uoms
+- name: '{uomID}'
+- name: memberships1
+- name: '{membershipID}'
+- name: responseTimes1
+- name: '{responseTimeID}1'
+- name: securityGroups
+- name: '{securityGroupID}'
+- name: statusCodes
+- name: customerInvoices12
+- name: '{statusCodeID}'
+- name: projects1
+- name: '{statusCodeID}1'
+- name: vendorOrders12
+- name: '{statusCodeID}12'
+- name: tags
+- name: customers1234
+- name: '{customerTagID}'
+- name: projects12
+- name: '{projectTagID}'
+- name: tasks123456
+- name: categories
+- name: '{taskCategoryID}'
+- name: teams
+- name: '{teamID}'
+- name: webhooks
+- name: '{webhookID}'
+- name: zones
+- name: '{zoneID}'
+- name: sites1
+- name: '{siteID}'
+- name: assets1234567
+- name: '{assetID}123456'
+- name: attachments1234567891011121314151617181920
+- name: files1234567891011121314151617181920
+- name: '{fileID}1234567891011121314151617181920'
+- name: folders123456789101112131415
+- name: '{folderID}123456789101112131415'
+- name: customFields123456789101112131415161718192021222324252627
+- name: '{customFieldID}1234567891011121314151617181920212223242526272829303132333435363738394041'
+- name: serviceLevels1234
+- name: '{serviceLevelID}123'
+- name: testHistory1
+- name: transfer
+- name: attachments123456789101112131415161718192021
+- name: files123456789101112131415161718192021
+- name: '{fileID}123456789101112131415161718192021'
+- name: folders12345678910111213141516
+- name: '{folderID}12345678910111213141516'
+- name: contacts123456
+- name: '{contactID}1234'
+- name: customFields12345678910111213141516171819202122232425262728
+- name: '{customFieldID}123456789101112131415161718192021222324252627282930313233343536373839404142'
+- name: customFields1234567891011121314151617181920212223242526272829
+- name: '{customFieldID}12345678910111213141516171819202122232425262728293031323334353637383940414243'
+- name: laborRates123
+- name: '{laborRateID}123'
+- name: preferredTechnicians
+- name: '{preferredTechnicianID}'
+- name: staff
+- name: '{staffID}'
+- name: stockAllocations
+- name: '{stockAllocationID}'
+- name: stockTakes
+- name: '{stockTakeID}'
+- name: stockTransfer
+- name: '{stockTransferID}'
+- name: storageDeviceStock
+- name: storageDevices
+- name: '{storageDeviceID}1'
+- name: stock12
+- name: '{catalogID}1234567'
+- name: takeOffTemplateGroups
+- name: '{groupID}12'
+- name: subGroups12
+- name: '{subGroupID}12'
+- name: takeOffTemplates12
+- name: '{takeOffTemplateID}'
+- name: catalogs12345678
+- name: '{catalogID}12345678'
+- name: labor123456
+- name: '{laborID}12345'
+- name: lock123
+- name: oneOffs12345
+- name: '{oneOffsID}'
+- name: prebuilds1234567
+- name: '{prebuildsID}'
+- name: serviceFees123456
+- name: '{serviceFeeID}123456'
+- name: takeOffTemplates123
+- name: tasks1234567
+- name: '{taskID}12345'
+- name: attachments12345678910111213141516171819202122
+- name: files12345678910111213141516171819202122
+- name: '{fileID}12345678910111213141516171819202122'
+- name: folders1234567891011121314151617
+- name: '{folderID}1234567891011121314151617'
+- name: customFields123456789101112131415161718192021222324252627282930
+- name: '{customFieldID}1234567891011121314151617181920212223242526272829303132333435363738394041424344'
+- name: testHistories
+- name: '{testHistoryID}'
+- name: timesheets123
+- name: vendorBranches
+- name: '{vendorBranchID}'
+- name: vendorCreditCatalogs
+- name: '{vendorCreditCatalogID}'
+- name: vendorCredits
+- name: '{vendorCreditID}'
+- name: vendorOrderCatalogs
+- name: '{vendorOrderCatalogID}'
+- name: vendorOrders123
+- name: '{vendorOrderID}'
+- name: attachments1234567891011121314151617181920212223
+- name: files1234567891011121314151617181920212223
+- name: '{fileID}1234567891011121314151617181920212223'
+- name: folders123456789101112131415161718
+- name: '{folderID}123456789101112131415161718'
+- name: catalogs123456789
+- name: '{vendorOrderItemID}'
+- name: allocations
+- name: customFields12345678910111213141516171819202122232425262728293031
+- name: '{customFieldID}123456789101112131415161718192021222324252627282930313233343536373839404142434445'
+- name: receipts
+- name: '{vendorReceiptID}'
+- name: catalogs12345678910
+- name: '{vendorReceiptItemID}'
+- name: allocations1
+- name: credits
+- name: '{vendorCreditID}1'
+- name: catalogs1234567891011
+- name: '{vendorCreditItemID}'
+- name: vendorQuotes
+- name: '{vendorQuoteID}'
+- name: catalogs123456789101112
+- name: '{catalogID}123456789'
+- name: vendorPrices
+- name: '{vendorID}'
+- name: vendors12
+- name: '{vendorID}1'
+- name: vendorReceiptCatalogs
+- name: '{vendorReceiptCatalogID}'
+- name: vendorReceipts
+- name: vendors123
+- name: '{vendorID}12'
+- name: attachments123456789101112131415161718192021222324
+- name: files123456789101112131415161718192021222324
+- name: '{fileID}123456789101112131415161718192021222324'
+- name: folders12345678910111213141516171819
+- name: '{folderID}12345678910111213141516171819'
+- name: branches
+- name: '{branchID}'
+- name: contacts1234567
+- name: '{contactID}12345'
+- name: customFields1234567891011121314151617181920212223242526272829303132
+- name: '{customFieldID}12345678910111213141516171819202122232425262728293031323334353637383940414243444546'
+- name: customFields123456789101112131415161718192021222324252627282930313233
+- name: '{customFieldID}1234567891011121314151617181920212223242526272829303132333435363738394041424344454647'
+- name: workOrders123
+- name: '{workOrderID}12'
+- name: assets12345678
+- name: '{assetID}1234567'
+- name: currentUser
+- name: info
+components:
+  parameters:
+    companyID:
+      name: companyID
+      in: path
+      required: true
+      schema:
+        type: string
+        example: <integer>
+        default: 0
+      description: "(Required) A build with Multi-company setup may have companyID >= 0, other builds use 0 by default.<br
+        />\nFor more information about Multi-company, see:<br />\nhttps://helpguide.simprogroup.com/Content/Service-and-Enterprise/Multi-company.htm"
+    search:
+      name: search
+      in: query
+      schema:
+        type: string
+        example: all
+      description: Search result must have a match on all provided fields or a match on any of the provided fields.
+    columns:
+      name: columns
+      in: query
+      schema:
+        type: string
+        example: <string>,<string>
+      description: When listing or searching a resource, specify which columns to be displayed
+    pageSize:
+      name: pageSize
+      in: query
+      schema:
+        type: string
+        example: '30'
+      description: The maximum number of results to be returned by a request.
+    page:
+      name: page
+      in: query
+      schema:
+        type: string
+        example: '1'
+      description: Set the page number on paginated request
+    orderby:
+      name: orderby
+      in: query
+      schema:
+        type: string
+        example: <string>,<string>
+      description: Set the order of the requested records, by prefixing '-' on the column name you can get records by 
+        descending order. Comma separated list can also be provided.
+    limit:
+      name: limit
+      in: query
+      schema:
+        type: string
+        example: <integer>
+      description: Set the limit of number of records in a request
+    JobID:
+      name: JobID
+      in: query
+      schema:
+        type: string
+        example: <string>
+      description: 'Filter schedules by job ID. Supports operators: lt(), le(), gt(), ge(), ne(), between(), in(), !in().'
+    QuoteID:
+      name: QuoteID
+      in: query
+      schema:
+        type: string
+        example: <string>
+      description: 'Filter schedules by quote ID. Supports operators: lt(), le(), gt(), ge(), ne(), between(), in(), !in().'
+    LeadID:
+      name: LeadID
+      in: query
+      schema:
+        type: string
+        example: <string>
+      description: 'Filter schedules by lead ID. Supports operators: lt(), le(), gt(), ge(), ne(), between(), in(), !in().'
+  schemas:
+    Address:
+      type: object
+      properties:
+        Address:
+          type: string
+          example: <string>
+        City:
+          type: string
+          example: <string>
+        Country:
+          type: string
+          example: <string>
+        PostalCode:
+          type: string
+          example: <string>
+        State:
+          type: string
+          example: <string>
+    Site:
+      type: object
+      properties:
+        Address:
+          $ref: '#/components/schemas/Address'
+        Name:
+          type: string
+          example: <string>
+        DateModified:
+          type: string
+          example: <dateTime>
+        ID:
+          type: string
+          example: <integer>
+    Activity:
+      type: object
+      properties:
+        ID:
+          type: string
+          example: <integer>
+        Name:
+          type: string
+          example: <string>
+    Staff:
+      type: object
+      properties:
+        ID:
+          type: string
+          example: <integer>
+        Name:
+          type: string
+          example: <string>
+    CostCenter:
+      type: object
+      properties:
+        ID:
+          type: string
+          example: <integer>
+        Name:
+          type: string
+          example: <string>
+    Customer:
+      type: object
+      properties:
+        CompanyName:
+          type: string
+          example: <string>
+        ID:
+          type: string
+          example: <integer>
+    Employee:
+      type: object
+      properties:
+        ID:
+          type: string
+          example: <integer>
+        Name:
+          type: string
+          example: <string>
+        Position:
+          type: string
+          example: <string>
+    Job:
+      type: object
+      properties:
+        ID:
+          type: string
+          example: <integer>
+        Customer:
+          $ref: '#/components/schemas/Customer'
+        DateModified:
+          type: string
+          example: <dateTime>
+        Description:
+          type: string
+          example: <string>
+        Name:
+          type: string
+          example: <string>
+        Site:
+          $ref: '#/components/schemas/JobSite'
+        Stage:
+          type: string
+          example: Archived
+        Status:
+          $ref: '#/components/schemas/JobStatus'
+        Type:
+          type: string
+          example: Service
+    Quote:
+      type: object
+      properties:
+        ID:
+          type: string
+          example: <integer>
+        Name:
+          type: string
+          example: <string>
+    LaborRate:
+      type: object
+      properties:
+        ID:
+          type: string
+          example: <integer>
+        Name:
+          type: string
+          example: <string>
+    JobCostCenter:
+      type: object
+      properties:
+        ID:
+          type: string
+          example: <integer>
+        Section:
+          $ref: '#/components/schemas/Section'
+        CostCenter:
+          $ref: '#/components/schemas/CostCenter'
+        DateModified:
+          type: string
+          example: <dateTime>
+        Job:
+          $ref: '#/components/schemas/JobCostCenterJob'
+        Name:
+          type: string
+          example: <string>
+        _href:
+          type: string
+          example: <string>
+    JobCostCenterJob:
+      type: object
+      properties:
+        ID:
+          type: string
+          example: <integer>
+        Name:
+          type: string
+          example: <string>
+        Stage:
+          type: string
+          example: <string>
+        Status:
+          type: string
+          example: <string>
+        Type:
+          type: string
+          example: <string>
+    Section:
+      type: object
+      properties:
+        ID:
+          type: string
+          example: <integer>
+        Name:
+          type: string
+          example: <string>
+    JobSite:
+      type: object
+      properties:
+        ID:
+          type: string
+          example: <integer>
+        Name:
+          type: string
+          example: <string>
+    JobStatus:
+      type: object
+      properties:
+        Color:
+          type: string
+          example: '#e99'
+        ID:
+          type: string
+          example: <integer>
+        Name:
+          type: string
+          example: <string>
+    Lead:
+      type: object
+      properties:
+        ID:
+          type: string
+          example: <integer>
+    ScheduleBlock:
+      type: object
+      properties:
+        EndTime:
+          type: string
+          example: <string>
+        Hrs:
+          type: number
+          example: 45674902025
+        ISO8601EndTime:
+          type: string
+          example: <dateTime>
+        ISO8601StartTime:
+          type: string
+          example: <dateTime>
+        ScheduleRate:
+          $ref: '#/components/schemas/LaborRate'
+        StartTime:
+          type: string
+          example: <string>
+    Schedule:
+      type: object
+      properties:
+        Blocks:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScheduleBlock'
+          example:
+          - EndTime: <string>
+            Hrs: 3541731922
+            ISO8601EndTime: <dateTime>
+            ISO8601StartTime: <dateTime>
+            ScheduleRate:
+              ID: <integer>
+              Name: <string>
+            StartTime: <string>
+          - EndTime: <string>
+            Hrs: 77399.7
+            ISO8601EndTime: <dateTime>
+            ISO8601StartTime: <dateTime>
+            ScheduleRate:
+              ID: <integer>
+              Name: <string>
+            StartTime: <string>
+        Date:
+          type: string
+          example: <date>
+        DateModified:
+          type: string
+          example: <dateTime>
+        ID:
+          type: string
+          example: <integer>
+        Notes:
+          type: string
+          example: <string>
+        Reference:
+          type: string
+          example: <string>
+        Staff:
+          $ref: '#/components/schemas/Staff'
+        Type:
+          type: string
+          example: lead
+  examples: {}

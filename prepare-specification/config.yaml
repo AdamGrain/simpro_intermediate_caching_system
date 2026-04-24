@@ -1,0 +1,107 @@
+# Endpoint and field filtering. Omit a section to apply no filtering for that section.
+filter:
+  # API paths and HTTP methods to retain. Paths not listed are removed.
+  paths:
+    /api/v1.0/companies/{companyID}/sites/: [get]
+    /api/v1.0/companies/{companyID}/schedules/: [get]
+    /api/v1.0/companies/{companyID}/jobs/: [get]
+    /api/v1.0/companies/{companyID}/employees/: [get]
+    /api/v1.0/companies/{companyID}/setup/activities/: [get]
+    /api/v1.0/companies/{companyID}/jobCostCenters/: [get]
+    /api/v1.0/companies/{companyID}/customers/: [get]
+    /api/v1.0/companies/{companyID}/leads/: [get]
+    /api/v1.0/companies/{companyID}/quotes/: [get]
+
+  # Response object field allowlists (UpperCamelCase field names).
+  # Only listed fields are retained per schema. Omit to keep all fields.
+  response_objects:
+    Schedule: [Blocks, Date, DateModified, ID, Notes, Reference, Staff, Type]
+    Staff: [ID, Name, Position]
+    Employee: [ID, Name, Position]
+    Activity: [ID, Name]
+    Job: [ID, Description, Name, Customer, Site, Stage, Status, Type, 
+        DateModified]
+    Site: [ID, Name, Address, DateModified]
+    CostCenter: [ID, Name, Section, DateModified]
+    Customer: [ID, CompanyName, DateModified]
+    Quote: [ID, Name]
+    Lead: [ID, Name]
+
+default_value:
+  companyID: 0
+
+# Use when an API field name doesn't match the table name expected 
+# from the full records endpoint (e.g. '/employees/') in mapping nested ID references to foreign keys.
+table_name:
+  Staff: employees
+
+# Properties excluded from SQL column generation.
+# "*" applies globally to every schema.
+# Named keys apply only to that schema.
+exclude_from_database_columns:
+  '*': [Reference, AssignedTo, CreatedBy, ConvertedFrom]
+
+# Many-to-many junction table definitions.
+# Each key is the junction table name; value is a list of 2+ table names.
+# To define interactively, set junction_tables to null and re-run the pipeline.
+# Default values injected into named path/query parameters in components/parameters.
+# Keys match the parameter name in the spec (camelCase). These values appear in
+# generated clients as the default when the caller does not supply the argument.
+defaults:
+  companyID: 0
+
+# Array field names (UpperCamelCase) that should generate a separate child table
+# instead of a JSONB column. Used for array properties whose items have no ID of
+# their own. The resulting table includes a '<parent>_id' FK referencing the parent,
+# plus a surrogate BIGSERIAL 'id' (since multiple rows can belong to the same parent).
+force_tables:
+  - Blocks
+  - ScheduleRate
+
+enums:
+  # simPRO omits a legitimate Enum from its specification
+  # This is valid for the API records retrieved
+  # and a PostgreSQL enum
+  Schedule:
+    Type:
+      type: string
+      enum:
+        - lead
+        - quote
+        - job
+        - activity
+
+schema_variants:
+  # Tentative new logic
+  # - Reuse existing GET definition with 'allOf' references
+  # - Avoids complex heuristic algorithm
+  # - This could replace 'junction_tables'
+  Schedule:
+    - ActivitySchedule
+    - JobCostCenterSchedule
+    - LeadSchedule
+    - QuoteSchedule
+
+junction_tables:
+  activity_schedules:
+  - activities
+  - schedules
+  job_schedules:
+  - schedules
+  - jobs
+
+# Regex stripped from the front of each API path before resource-name derivation.
+URL_PREFIX_PATTERN: ^/api/v1\.0(/companies/\{companyID\}/(setup/)?(accounts/)?)?
+
+# Strip all example/examples from the output.
+NO_EXAMPLES: true
+
+# Strip all tags fields from the output.
+NO_TAGS: true
+
+# Skip SQL schema generation.
+NO_SQL: false
+
+# Progenitor uses this as the default base URL for the generated client.
+SERVER_URL: "/"
+
